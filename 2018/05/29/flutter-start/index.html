@@ -104,7 +104,7 @@
 <meta property="og:description" content="Flutter是谷歌的开发者推出的跨平台编程框架，用Dart语言进行开发，最终编译成arm字节码。 安装环境：macOS现在官网提供的安装方式是一个zip包，个人建议还是去git下载源码，可以方便切换分支和tag。个人习惯安装到Application下。 Flutter环境1git clone https://github.com/flutter/flutter.git /Applications">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/29/flutter-start/command.jpg">
-<meta property="og:updated_time" content="2018-05-29T04:20:52.964Z">
+<meta property="og:updated_time" content="2018-05-29T04:26:24.452Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Flutter 第一篇 安装">
 <meta name="twitter:description" content="Flutter是谷歌的开发者推出的跨平台编程框架，用Dart语言进行开发，最终编译成arm字节码。 安装环境：macOS现在官网提供的安装方式是一个zip包，个人建议还是去git下载源码，可以方便切换分支和tag。个人习惯安装到Application下。 Flutter环境1git clone https://github.com/flutter/flutter.git /Applications">
@@ -365,7 +365,7 @@
 <h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>环境：macOS<br>现在官网提供的安装方式是一个zip包，个人建议还是去git下载源码，可以方便切换分支和tag。<br>个人习惯安装到Application下。</p>
 <h2 id="Flutter环境"><a href="#Flutter环境" class="headerlink" title="Flutter环境"></a>Flutter环境</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/flutter/flutter.git /Applications/Flutter/</span><br></pre></td></tr></table></figure>
 <p>clone完成之后在.bash_profile中导入环境变量，并且初始化flutter<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--------.bash_profile--------</span><br><span class="line">#Flutter</span><br><span class="line">export PATH=$PATH:/Applications/Flutter/bin</span><br><span class="line"></span><br><span class="line">--------Run in Terminal--------</span><br><span class="line">#检测自身完整性(自动下载依赖)</span><br><span class="line">flutter doctor</span><br></pre></td></tr></table></figure></p>
-<p>与网速有关安装完大概是这样：<br><img src="command.jpg" alt=""></p>
+<p>与网速有关安装完大概是这样：<br><img src="./command.jpg" alt=""></p>
 <h2 id="苹果调试"><a href="#苹果调试" class="headerlink" title="苹果调试"></a>苹果调试</h2><p>如果要测试苹果需要安装xcode:<a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">网页下载</a>或者<a href="https://itunes.apple.com/us/app/xcode/id497799835" target="_blank" rel="noopener">Appstore下载</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br><span class="line">#打开一模拟器 确保是5s以后的64位设备</span><br><span class="line">open -a Simulator</span><br></pre></td></tr></table></figure>
 <p>如果需要在真机上测试，需要额外安装几个插件：<br>确保已经安装homebrew<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install --HEAD libimobiledevice</span><br><span class="line">brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line">pod setup</span><br></pre></td></tr></table></figure></p>
