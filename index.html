@@ -965,7 +965,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,119
+                  1,130
                 </span>
               字
 
@@ -1013,11 +1013,11 @@
 <h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul>
 <li>macOS系统(DMG格式)</li>
 <li>U盘一个</li>
-<li>安装UniBeast</li>
+<li>安装UniBeast ?</li>
 </ul>
 <p>开干！！！</p>
 <h2 id="一个靠谱的的系统镜像很关键"><a href="#一个靠谱的的系统镜像很关键" class="headerlink" title="一个靠谱的的系统镜像很关键"></a>一个靠谱的的系统镜像很关键</h2><p>为什么需要一个靠谱的系统镜像？1、因为因为系统镜像问题耽误了半天时间。2、一个自带Clover的dmg镜像可以让你安装事半功倍。<br>这个<a href="https://blog.daliansky.net/macOS-High-Sierra-10.13.4-17E199-Release-Version-and-Clover-4418-Original-Image.html" target="_blank" rel="noopener">链接</a>是我最终获取镜像的位置，感谢前人的提供。</p>
-<h2 id="制作EFI启动盘"><a href="#制作EFI启动盘" class="headerlink" title="制作EFI启动盘"></a>制作EFI启动盘</h2><p>这一步使用到个东西有：一个U盘、TransMac软件、DiskGenins软件。<br>1、U盘最好是&gt;=16G，插入U盘打开TransMac软件，在U盘上右键选择format for mac –&gt; 转换为mac读写格式。<br>2、格式化完成之后再次右键U盘选择restore from local file.然后选择我们的DMG，等待烧录完成。<br>只要你前期准备的dmg文件没有问题，这个过程一般不会出错。<br>3、打开DG软件找到U盘的EBP分区–&gt;点击浏览文件–&gt;将EFI文件夹导出–&gt;右键这EBP分区删除–&gt;右键这个未命名的分区创建一个新的fat32分区–&gt;将EFI文件夹拷贝到这个目录。<br>以上这一步的目的是将EFI分区变为windows可读写，方便后期各种蛋疼调试和驱动安装。<br>4、到EFI/CLOVER下找到自己对应的配置文件，将其修改为default。这个配置文件是集成显卡的型号。</p>
+<h2 id="制作EFI启动盘"><a href="#制作EFI启动盘" class="headerlink" title="制作EFI启动盘"></a>制作EFI启动盘</h2><p>这一步使用到个东西有：一个U盘、TransMac软件、DiskGenins软件。<br>1、U盘最好是&gt;=16G，插入U盘打开TransMac软件，在U盘上右键选择format for mac –&gt; 转换为mac读写格式。<br>2、格式化完成之后再次右键U盘选择restore from local file.然后选择我们的DMG，等待烧录完成。<br>这是就可以关闭TransMac软件了。只要你前期准备的dmg文件没有问题，这个过程一般不会出错。<br>3、打开DG软件找到U盘的ESP分区–&gt;点击浏览文件–&gt;将EFI文件夹导出–&gt;右键这ESP分区删除–&gt;右键这个未命名的分区创建一个新的fat32分区–&gt;将EFI文件夹拷贝到这个目录。<br>以上这一步的目的是将EFI分区变为windows可读写，方便后期各种蛋疼调试和驱动安装。<br>4、到EFI/CLOVER下找到自己对应的配置文件，将其修改为default。这个配置文件是集成显卡的型号。</p>
 <h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>将U盘插到PC的2.0口(必须)上–&gt;重启–&gt;bios设置从U盘启动。<br>根据你主板的不同在网上搜索一个黑苹果的必要设置–&gt;重启<br>这时候会出现Clover的界面–&gt;选择苹果的图标–&gt;空格–&gt;选择啰嗦模式–&gt;Return–&gt;回车<br>这个过程随时会出现各种各样的问题，需要自行解决。<br>还好我的电脑并没有出现问题，直接跑完代码重启。<br>这次的重启之后会多出一个苹果的图标(Boot Mac)–&gt;选择并回车</p>
 <p>2 假设你已经下载好了 macOS Sierra,  打开你刚才安装的 UniBeast,  点Continue, Continue, Continue, Continue, Agree,  在 Destination Select, 选 USB 并点击 Continue</p>
 <p>3 在 Select OS Installation 选 Sierra 然后点 Continue</p>
