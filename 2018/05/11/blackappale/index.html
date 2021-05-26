@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 2px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="黑苹果," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="参考资料一参考资料二参考资料三参考资料四 安装信息 系统目前最新版本 macOS High Sierra 10.13.4 i5 6600K ASUS Z170I Pro Gaming  前期准备 macOS系统(DMG格式) U盘一个  开干！！！ 一个靠谱的的系统镜像很关键为什么需要一个靠谱的系统镜像？1、因为因为系统镜像问题耽误了半天时间。2、一个自带Clover的dmg镜像可以让你安装事半功">
+<meta name="keywords" content="黑苹果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="黑苹果安装">
+<meta property="og:url" content="https://sorosunrain.github.io/2018/05/11/blackappale/index.html">
+<meta property="og:site_name" content="sorosunrain">
+<meta property="og:description" content="参考资料一参考资料二参考资料三参考资料四 安装信息 系统目前最新版本 macOS High Sierra 10.13.4 i5 6600K ASUS Z170I Pro Gaming  前期准备 macOS系统(DMG格式) U盘一个  开干！！！ 一个靠谱的的系统镜像很关键为什么需要一个靠谱的系统镜像？1、因为因为系统镜像问题耽误了半天时间。2、一个自带Clover的dmg镜像可以让你安装事半功">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-07-31T06:03:03.624Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="黑苹果安装">
+<meta name="twitter:description" content="参考资料一参考资料二参考资料三参考资料四 安装信息 系统目前最新版本 macOS High Sierra 10.13.4 i5 6600K ASUS Z170I Pro Gaming  前期准备 macOS系统(DMG格式) U盘一个  开干！！！ 一个靠谱的的系统镜像很关键为什么需要一个靠谱的系统镜像？1、因为因为系统镜像问题耽误了半天时间。2、一个自带Clover的dmg镜像可以让你安装事半功">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://sorosunrain.github.io/2018/05/11/blackappale/"/>
+
+
+
+
+
+  <title>黑苹果安装 | sorosunrain</title>
+  
+
+
+
+
+
+
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/heart.js"></script>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <!-- 右上角角标 -->
+    <a href="https://github.com/sorosunrain" class="github-corner" aria-label="View source on Github">
+      <svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path>
+      </svg>
+    </a>
+    <style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">sorosunrain</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">卡卡</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://sorosunrain.github.io/2018/05/11/blackappale/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="sorosunrain">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="sorosunrain">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">黑苹果安装</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-11T13:12:48+08:00">
+                2018-05-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,133
+                </span>
+              字
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  5
+                </span>
+              分
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><a href="https://www.tonymacx86.com/threads/success-asus-z170i-pro-gaming-sierra-10-12-5.224066/" target="_blank" rel="noopener">参考资料一</a><br><a href="https://hackintosher.com/guides/high-sierra-install-full-guide/" target="_blank" rel="noopener">参考资料二</a><br><a href="https://hackintosher.com/guides/properly-install-nvidia-drivers-high-sierra-10-13/" target="_blank" rel="noopener">参考资料三</a><br><a href="https://blog.daliansky.net/macOS-High-Sierra-10.13.6-17G2112-Release-Special-with-Clover-4606-original-mirror.html" target="_blank" rel="noopener">参考资料四</a></p>
+<h2 id="安装信息"><a href="#安装信息" class="headerlink" title="安装信息"></a>安装信息</h2><ul>
+<li>系统目前最新版本 macOS High Sierra 10.13.4</li>
+<li>i5 6600K</li>
+<li>ASUS Z170I Pro Gaming</li>
+</ul>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><ul>
+<li>macOS系统(DMG格式)</li>
+<li>U盘一个</li>
+</ul>
+<p>开干！！！</p>
+<h2 id="一个靠谱的的系统镜像很关键"><a href="#一个靠谱的的系统镜像很关键" class="headerlink" title="一个靠谱的的系统镜像很关键"></a>一个靠谱的的系统镜像很关键</h2><p>为什么需要一个靠谱的系统镜像？1、因为因为系统镜像问题耽误了半天时间。2、一个自带Clover的dmg镜像可以让你安装事半功倍。<br>这个<a href="https://blog.daliansky.net/macOS-High-Sierra-10.13.4-17E199-Release-Version-and-Clover-4418-Original-Image.html" target="_blank" rel="noopener">链接</a>是我最终获取镜像的位置，感谢前人的提供。</p>
+<h2 id="制作EFI启动盘"><a href="#制作EFI启动盘" class="headerlink" title="制作EFI启动盘"></a>制作EFI启动盘</h2><p>这一步使用到个东西有：一个U盘、TransMac软件、DiskGenins软件。<br>1、U盘最好是&gt;=16G，插入U盘打开TransMac软件，在U盘上右键选择format for mac –&gt; 转换为mac读写格式。<br>2、格式化完成之后再次右键U盘选择restore from local file.然后选择我们的DMG，等待烧录完成。<br>这是就可以关闭TransMac软件了。只要你前期准备的dmg文件没有问题，这个过程一般不会出错。<br>3、打开DG软件找到U盘的ESP分区–&gt;点击浏览文件–&gt;将EFI文件夹导出–&gt;右键这ESP分区删除–&gt;右键这个未命名的分区创建一个新的fat32分区–&gt;将EFI文件夹拷贝到这个目录。<br>以上这一步的目的是将EFI分区变为windows可读写，方便后期各种蛋疼调试和驱动安装。<br>4、到EFI/CLOVER下找到自己对应的配置文件，将其修改为default。这个配置文件是集成显卡的型号。</p>
+<h2 id="开始安装"><a href="#开始安装" class="headerlink" title="开始安装"></a>开始安装</h2><p>将U盘插到PC的2.0口(必须)上–&gt;重启–&gt;bios设置从U盘启动。<br>根据你主板的不同在网上搜索一个黑苹果的必要设置–&gt;重启<br>这时候会出现Clover的界面–&gt;选择苹果的图标–&gt;空格–&gt;选择啰嗦模式–&gt;Return–&gt;回车<br>这个过程随时会出现各种各样的问题，需要自行解决。<br>还好我的电脑并没有出现问题，直接跑完代码重启。<br>这次的重启之后会多出一个苹果的图标(Boot Mac)–&gt;选择并回车</p>
+<p>2 假设你已经下载好了 macOS Sierra,  打开你刚才安装的 UniBeast,  点Continue, Continue, Continue, Continue, Agree,  在 Destination Select, 选 USB 并点击 Continue</p>
+<p>3 在 Select OS Installation 选 Sierra 然后点 Continue</p>
+<p>4 对于 Bootloader Options 选 UEFI Boot Mode or Legacy Boot Mode.  对于支持UEFI的系统和7/8/9/100 系列主板, 推荐选 UEFI Boot Mode . 对于 5/6 系列主板或老的 BIOS, 选Legacy Boot Mode</p>
+<p>5 在Graphics Configuration 这页, 选你自己对应的显卡, 对于我, 后面要装 Nivida webdriver, 我就没选</p>
+<p>6 校验后, 开始安装, 可能要输入你的macOS口令</p>
+<p>7 完成后, 把你下载的 MultiBease 拖到 U盘中, 这时U盘中有几个东西, 比如 UEFI-backup, Install Sierra等</p>
+<h2 id="BIOS"><a href="#BIOS" class="headerlink" title="BIOS"></a>BIOS</h2><p>华硕主板Z170-Pro gaming bios设置 以防出问题 建议升级到最新版本 测试过1204 最新1206应该也可以 没测试<br>advanced—Onboard Devices Configuration-Serial Port Configuration Serial Port （Off）</p>
+<p>advanced—USB Configuration-XHCI Hand-off-Enabled</p>
+<p>Secure Boot-OS Type，改成Other OS</p>
+<p>advanced—PCH configuration-IOAPIC 24-119 Entries-disabled</p>
+<p>可能需要的选项</p>
+<pre><code>安全设置 关闭
+如果 6 系列主板或有 AWARD BIOS的X58系统, 禁用USB 3.0
+</code></pre><h2 id="安装Nvidia-WebDriver"><a href="#安装Nvidia-WebDriver" class="headerlink" title="安装Nvidia WebDriver"></a>安装Nvidia WebDriver</h2><ul>
+<li>Mount your EFI partition, navigate to</li>
+<li>Navigate to /Volumes/EFI/EFI/Clover/drivers64UEFI folder and verify whether you have OsxAptioFix3Drv-64.efi or OsxAptioFix2Drv-64.efi or OsxAptioFix2Drv-free2000.efi. If you are using OsxAptioFix2Drv-64.efi or OsxAptioFix2Drv-free2000.efi you will need to add EmuVariableUefi-64.efi under Clover Configurator -Install Drivers for acceleration.</li>
+<li>Make sure you have <a href="https://github.com/vit9696/Lilu/releases" target="_blank" rel="noopener">Lilu.kext</a> and <a href="https://sourceforge.net/projects/nvidiagraphicsfixup/" target="_blank" rel="noopener">NvidiaGraphicsFixup.kext</a> (if applicable) in /Volumes/EFI/EFI/Clover/kexts/Other</li>
+<li>Verify SIP is disabled or these steps below wont work</li>
+<li>Download webdriver.sh</li>
+<li>Make sure it’s unzipped and in your downloads folder</li>
+<li>Open Terminal</li>
+<li><p>Type &amp; Enter the following three lines in Terminal:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd ~/Downloads/webdriver.sh-master/</span><br><span class="line">sudo sh webdriver.sh -u https://images.nvidia.com/mac/pkg/378/WebDriver-378.10.10.10.25.103.pkg</span><br><span class="line">sudo sh webdriver.sh -m</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Restart Hackintosh</p>
+</li>
+</ul>
+<p><a href="https://images.nvidia.com/mac/pkg/387/WebDriver-387.10.10.10.30.106.pkg" target="_blank" rel="noopener">Download 10.13.4 -387.10.10.10.30.106 (17E199)</a></p>
+<p>如果您有APFS格式的驱动器，请确保您使用的是最新版本的apfs.efi将以下的下载文件解压缩并粘贴到EFI/Clover/Drivers64UEFI/<br><a href="https://hackintosher.com/wp-content/uploads/APFS_10.13.4.zip" target="_blank" rel="noopener">APFS_10.13.4.zip</a></p>
+<p>High Sierra 10.13.4需要一个新的USB补丁程序才能识别并运行所有USB / USB3端口。<br>Mount EFI Partition with Clover Configurator<br>Navigate to /Volumes/EFI/EFI/Clover/<br>Right-click open config.plist with Clover Configurator<br>Click Kernel and Kext Patches under SECTIONS of Clover Configurator<br>Click the “+” button near the bottom to add this patch:<br>Name<em>: com.apple.driver.usb.AppleUSBXHCI<br>Find</em> [HEX]: 837d940f 0f839704 0000<br>Replace* [HEX]: 837d940f 90909090 9090<br>Comment: USB 10.13.4+ by PMHeart<br>MatchOS: 10.13.x<br>Save config.plist</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/pay_wechat.png" alt="sorosunrain 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/pay_ali.png" alt="sorosunrain 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/黑苹果/" rel="tag"><i class="fa fa-tag"></i> 黑苹果</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/04/23/annotation/" rel="next" title="Android使用注解">
+                <i class="fa fa-chevron-left"></i> Android使用注解
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/05/12/networkhack/" rel="prev" title="无线局域网破解">
+                无线局域网破解 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">sorosunrain</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                
+                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-name">标签</span>
+                
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装信息"><span class="nav-number">1.</span> <span class="nav-text">安装信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前期准备"><span class="nav-number">2.</span> <span class="nav-text">前期准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个靠谱的的系统镜像很关键"><span class="nav-number">3.</span> <span class="nav-text">一个靠谱的的系统镜像很关键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#制作EFI启动盘"><span class="nav-number">4.</span> <span class="nav-text">制作EFI启动盘</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始安装"><span class="nav-number">5.</span> <span class="nav-text">开始安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BIOS"><span class="nav-number">6.</span> <span class="nav-text">BIOS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Nvidia-WebDriver"><span class="nav-number">7.</span> <span class="nav-text">安装Nvidia WebDriver</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">sorosunrain</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">4.5k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
