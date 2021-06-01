@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>1.逆向学习(一)</title>
+    <url>/2018/04/18/1-firstday/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>ios逆向</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Mat分析Android应用内存</title>
     <url>/2018/05/31/MatMemory/</url>
     <content><![CDATA[<p>分析 = 工具 + 数据</p>
@@ -21,19 +29,22 @@
       </tags>
   </entry>
   <entry>
-    <title>1.逆向学习(一)</title>
-    <url>/2018/04/18/1-firstday/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>ios逆向</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>百度</title>
     <url>/2020/09/08/ad-baidu/</url>
     <content><![CDATA[<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;Application&gt;</span><br><span class="line">    &lt;meta-data</span><br><span class="line">        android:name=&quot;BaiduMobAd_APP_ID&quot;</span><br><span class="line">        android:value=&quot;ID&quot; /&gt;</span><br><span class="line">&lt;/Application&gt;</span><br><span class="line">// 或者</span><br><span class="line">AdView.setAppSid(context, &quot;AD_ID&quot;);</span><br></pre></td></tr></table></figure>
 <p>##开屏<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">SplashAd splashAd = new SplashAd(RSplashManagerActivity.this, adsParent, listener, adPlaceId, true, RequestParameters);</span><br><span class="line">splashAd.load();</span><br></pre></td></tr></table></figure></p>
 ]]></content>
+      <tags>
+        <tag>AD</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>穿山甲</title>
+    <url>/2020/09/04/ad-toutiao/</url>
+    <content><![CDATA[<p><br><br><strong>TTAdSdk -&gt; TTAdManager -&gt; TTAdNative -&gt; …</strong></p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TTAdSdk.init(Context, TTAdConfig);</span><br><span class="line">// TTAdConfig说明</span><br><span class="line">public static class TTAdConfig.Builder &#123;</span><br><span class="line">    private String mAppId;// 必选参数，设置应用的AppId</span><br><span class="line">    private String mAppName;// 必选参数，设置应用名称</span><br><span class="line">    private boolean mIsPaid = false;// 可选参数，设置是否为计费用户：true计费用户、false非计费用户。默认为false非计费用户。须征得用户同意才可传入该参数</span><br><span class="line">    private String mKeywords;// 可选参数，设置用户画像的关键词列表 **不能超过为1000个字符**。须征得用户同意才可传入该参数</span><br><span class="line">    private String mData;// 可选参数，设置额外的用户信息 **不能超过为1000个字符**</span><br><span class="line">    private int mTitleBarTheme = TTAdConstant.TITLE_BAR_THEME_LIGHT;// 可选参数，设置落地页主题，默认为TTAdConstant#TITLE_BAR_THEME_LIGHT</span><br><span class="line">    private boolean mAllowShowNotify = true;// 可选参数，设置是否允许SDK弹出通知：true允许、false禁止。默认为true允许</span><br><span class="line">    private boolean mIsDebug = false;// 可选参数，是否打开debug调试信息输出：true打开、false关闭。默认false关闭</span><br><span class="line">    private boolean mAllowShowPageWhenScreenLock = false;// 可选参数，设置是否允许落地页出现在锁屏上面：true允许、false禁止。默认为false禁止</span><br><span class="line">    private int[] mDirectDownloadNetworkType;</span><br><span class="line">    private boolean mIsUseTextureView = false;// 可选参数，设置是否使用texture播放视频：true使用、false不使用。默认为false不使用（使用的是surface）</span><br><span class="line">    private boolean mIsSupportMultiProcess = false;// 可选参数，设置是否支持多进程：true支持、false不支持。默认为false不支持</span><br><span class="line">    private IHttpStack mHttpStack;//可选参数，设置外部网络请求，默认为urlconnection</span><br><span class="line">    private boolean mIsAsyncInit = false;//是否异步初始化sdk，开启可减少初始化耗时</span><br><span class="line">    private TTCustomController mCustomController;//可选参数，可以设置隐私信息控制开关</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>AdSlot说明<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AdSlot adSlot = new AdSlot.Builder()</span><br><span class="line">    // 必选参数 设置您的CodeId</span><br><span class="line">    .setCodeId(“900486272&quot;)</span><br><span class="line">    // 必选参数 设置广告图片的最大尺寸及期望的图片宽高比，单位Px</span><br><span class="line">    // 注：必填字段，期望的图片尺寸，返回尺寸可能有差异</span><br><span class="line">    .setImageAcceptedSize(640, 320)</span><br><span class="line">    //模板广告需要设置期望个性化模板广告的大小,单位dp,代码位是否属于个性化模板广告，请在穿山甲平台查看</span><br><span class="line">    .setExpressViewAcceptedSize(expressViewWidth, expressViewHeight)</span><br><span class="line">    // 可选参数 设置是否支持deeplink</span><br><span class="line">    .setSupportDeepLink(true)</span><br><span class="line">    // 可选参数，针对信息流广告设置每次请求的广告返回个数，最多支持3个</span><br><span class="line">    .setAdCount(2)</span><br><span class="line">    //请求原生广告时候需要设置，参数为TYPE_BANNER或TYPE_INTERACTION_AD</span><br><span class="line">    .setNativeAdType(AdSlot.TYPE_BANNER)</span><br><span class="line">    //激励视频奖励的名称，针对激励视频参数</span><br><span class="line">    .setRewardName(&quot;金币&quot;)</span><br><span class="line">    //激励视频奖励个数</span><br><span class="line">    .setRewardAmount(3)</span><br><span class="line">    //用户ID,使用激励视频必传参数</span><br><span class="line">    //表来标识应用侧唯一用户；若非服务器回调模式或不需sdk透传，可设置为空字符串</span><br><span class="line">    .setUserID(&quot;user123&quot;)</span><br><span class="line">    //设置期望视频播放的方向，为TTAdConstant.HORIZONTAL或TTAdConstant.VERTICAL</span><br><span class="line">    .setOrientation(orientation)</span><br><span class="line">    //激励视频奖励透传参数，字符串，如果用json对象，必须使用序列化为String类型,可为空</span><br><span class="line">    .setMediaExtra(&quot;media_extra&quot;)</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure></p>
+<h2 id="开屏"><a href="#开屏" class="headerlink" title="开屏"></a>开屏</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// step1:获取Container</span><br><span class="line">mSplashContainer = (FrameLayout) findViewById(R.id.splash_container);</span><br><span class="line">// step2:创建TTAdNative对象</span><br><span class="line">mTTAdNative = TTAdSdk.getAdManager().createAdNative(this);</span><br><span class="line">// step3:创建插槽</span><br><span class="line">AdSlot adSlot = new AdSlot.Builder().build();</span><br><span class="line">//step4:请求广告，调用开屏广告异步请求接口，对请求回调的广告作渲染处理</span><br><span class="line">mTTAdNative.loadSplashAd(AdSlot, new TTAdNative.SplashAdListener() &#123;&#125;, AD_TIME_OUT);</span><br></pre></td></tr></table></figure>]]></content>
       <tags>
         <tag>AD</tag>
       </tags>
@@ -49,10 +60,14 @@
       </tags>
   </entry>
   <entry>
-    <title>Android使用注解</title>
-    <url>/2018/04/23/annotation/</url>
-    <content><![CDATA[<p>##Android中常使用注解来生成类和方法</p>
+    <title>AdWhirl</title>
+    <url>/2020/09/04/adwhirl/</url>
+    <content><![CDATA[<p>Config接口：<br>返回sdk的appid跟各个广告位之间的对应关系，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;expire&quot;: 10,  // 过期时间</span><br><span class="line">  &quot;mediation&quot;: [ // 媒体集合</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;mediaType:&quot;: &quot;1&quot;, // 媒体类型</span><br><span class="line">      &quot;mediaId&quot;: &quot;1&quot;,    // 媒体的应用ID</span><br><span class="line">      &quot;mediaKey&quot;: &quot;1&quot;    // 媒体的应用KEY</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;strategy&quot;: [ // 请求规则</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;slotType&quot;: &quot;splash&quot;, // 广告类型</span><br><span class="line">      &quot;slotList&quot;: [  // 请求顺序</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;mediaType&quot;: &quot;3&quot;,   // 需要使用媒体</span><br><span class="line">          &quot;slotId&quot;: &quot;&quot;  // 广告位ID</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;mediaType&quot;: &quot;1&quot;,</span><br><span class="line">          &quot;slotId&quot;: &quot;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;mediaType&quot;: &quot;2&quot;,</span><br><span class="line">          &quot;slotId&quot;: &quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>请求参数：<br>申请SDK的ID<br>appId<br>appKey</p>
 ]]></content>
+      <tags>
+        <tag>AD</tag>
+      </tags>
   </entry>
   <entry>
     <title>appium</title>
@@ -69,66 +84,10 @@
 ]]></content>
   </entry>
   <entry>
-    <title>穿山甲</title>
-    <url>/2020/09/04/ad-toutiao/</url>
-    <content><![CDATA[<p><br><br><strong>TTAdSdk -&gt; TTAdManager -&gt; TTAdNative -&gt; …</strong></p>
-<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">TTAdSdk.init(Context, TTAdConfig);</span><br><span class="line">// TTAdConfig说明</span><br><span class="line">public static class TTAdConfig.Builder &#123;</span><br><span class="line">    private String mAppId;// 必选参数，设置应用的AppId</span><br><span class="line">    private String mAppName;// 必选参数，设置应用名称</span><br><span class="line">    private boolean mIsPaid = false;// 可选参数，设置是否为计费用户：true计费用户、false非计费用户。默认为false非计费用户。须征得用户同意才可传入该参数</span><br><span class="line">    private String mKeywords;// 可选参数，设置用户画像的关键词列表 **不能超过为1000个字符**。须征得用户同意才可传入该参数</span><br><span class="line">    private String mData;// 可选参数，设置额外的用户信息 **不能超过为1000个字符**</span><br><span class="line">    private int mTitleBarTheme = TTAdConstant.TITLE_BAR_THEME_LIGHT;// 可选参数，设置落地页主题，默认为TTAdConstant#TITLE_BAR_THEME_LIGHT</span><br><span class="line">    private boolean mAllowShowNotify = true;// 可选参数，设置是否允许SDK弹出通知：true允许、false禁止。默认为true允许</span><br><span class="line">    private boolean mIsDebug = false;// 可选参数，是否打开debug调试信息输出：true打开、false关闭。默认false关闭</span><br><span class="line">    private boolean mAllowShowPageWhenScreenLock = false;// 可选参数，设置是否允许落地页出现在锁屏上面：true允许、false禁止。默认为false禁止</span><br><span class="line">    private int[] mDirectDownloadNetworkType;</span><br><span class="line">    private boolean mIsUseTextureView = false;// 可选参数，设置是否使用texture播放视频：true使用、false不使用。默认为false不使用（使用的是surface）</span><br><span class="line">    private boolean mIsSupportMultiProcess = false;// 可选参数，设置是否支持多进程：true支持、false不支持。默认为false不支持</span><br><span class="line">    private IHttpStack mHttpStack;//可选参数，设置外部网络请求，默认为urlconnection</span><br><span class="line">    private boolean mIsAsyncInit = false;//是否异步初始化sdk，开启可减少初始化耗时</span><br><span class="line">    private TTCustomController mCustomController;//可选参数，可以设置隐私信息控制开关</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>AdSlot说明<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">AdSlot adSlot = new AdSlot.Builder()</span><br><span class="line">    // 必选参数 设置您的CodeId</span><br><span class="line">    .setCodeId(“900486272&quot;)</span><br><span class="line">    // 必选参数 设置广告图片的最大尺寸及期望的图片宽高比，单位Px</span><br><span class="line">    // 注：必填字段，期望的图片尺寸，返回尺寸可能有差异</span><br><span class="line">    .setImageAcceptedSize(640, 320)</span><br><span class="line">    //模板广告需要设置期望个性化模板广告的大小,单位dp,代码位是否属于个性化模板广告，请在穿山甲平台查看</span><br><span class="line">    .setExpressViewAcceptedSize(expressViewWidth, expressViewHeight)</span><br><span class="line">    // 可选参数 设置是否支持deeplink</span><br><span class="line">    .setSupportDeepLink(true)</span><br><span class="line">    // 可选参数，针对信息流广告设置每次请求的广告返回个数，最多支持3个</span><br><span class="line">    .setAdCount(2)</span><br><span class="line">    //请求原生广告时候需要设置，参数为TYPE_BANNER或TYPE_INTERACTION_AD</span><br><span class="line">    .setNativeAdType(AdSlot.TYPE_BANNER)</span><br><span class="line">    //激励视频奖励的名称，针对激励视频参数</span><br><span class="line">    .setRewardName(&quot;金币&quot;)</span><br><span class="line">    //激励视频奖励个数</span><br><span class="line">    .setRewardAmount(3)</span><br><span class="line">    //用户ID,使用激励视频必传参数</span><br><span class="line">    //表来标识应用侧唯一用户；若非服务器回调模式或不需sdk透传，可设置为空字符串</span><br><span class="line">    .setUserID(&quot;user123&quot;)</span><br><span class="line">    //设置期望视频播放的方向，为TTAdConstant.HORIZONTAL或TTAdConstant.VERTICAL</span><br><span class="line">    .setOrientation(orientation)</span><br><span class="line">    //激励视频奖励透传参数，字符串，如果用json对象，必须使用序列化为String类型,可为空</span><br><span class="line">    .setMediaExtra(&quot;media_extra&quot;)</span><br><span class="line">    .build();</span><br></pre></td></tr></table></figure></p>
-<h2 id="开屏"><a href="#开屏" class="headerlink" title="开屏"></a>开屏</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">// step1:获取Container</span><br><span class="line">mSplashContainer = (FrameLayout) findViewById(R.id.splash_container);</span><br><span class="line">// step2:创建TTAdNative对象</span><br><span class="line">mTTAdNative = TTAdSdk.getAdManager().createAdNative(this);</span><br><span class="line">// step3:创建插槽</span><br><span class="line">AdSlot adSlot = new AdSlot.Builder().build();</span><br><span class="line">//step4:请求广告，调用开屏广告异步请求接口，对请求回调的广告作渲染处理</span><br><span class="line">mTTAdNative.loadSplashAd(AdSlot, new TTAdNative.SplashAdListener() &#123;&#125;, AD_TIME_OUT);</span><br></pre></td></tr></table></figure>]]></content>
-      <tags>
-        <tag>AD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>AdWhirl</title>
-    <url>/2020/09/04/adwhirl/</url>
-    <content><![CDATA[<p>Config接口：<br>返回sdk的appid跟各个广告位之间的对应关系，例如：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;expire&quot;: 10,  // 过期时间</span><br><span class="line">  &quot;mediation&quot;: [ // 媒体集合</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;mediaType:&quot;: &quot;1&quot;, // 媒体类型</span><br><span class="line">      &quot;mediaId&quot;: &quot;1&quot;,    // 媒体的应用ID</span><br><span class="line">      &quot;mediaKey&quot;: &quot;1&quot;    // 媒体的应用KEY</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  &quot;strategy&quot;: [ // 请求规则</span><br><span class="line">    &#123;</span><br><span class="line">      &quot;slotType&quot;: &quot;splash&quot;, // 广告类型</span><br><span class="line">      &quot;slotList&quot;: [  // 请求顺序</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;mediaType&quot;: &quot;3&quot;,   // 需要使用媒体</span><br><span class="line">          &quot;slotId&quot;: &quot;&quot;  // 广告位ID</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;mediaType&quot;: &quot;1&quot;,</span><br><span class="line">          &quot;slotId&quot;: &quot;&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">          &quot;mediaType&quot;: &quot;2&quot;,</span><br><span class="line">          &quot;slotId&quot;: &quot;&quot;</span><br><span class="line">        &#125;</span><br><span class="line">      ]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>请求参数：<br>申请SDK的ID<br>appId<br>appKey</p>
+    <title>Android使用注解</title>
+    <url>/2018/04/23/annotation/</url>
+    <content><![CDATA[<p>##Android中常使用注解来生成类和方法</p>
 ]]></content>
-      <tags>
-        <tag>AD</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>一种SDK发布打包代码合并方案</title>
-    <url>/2021/06/01/fat-aar/</url>
-    <content><![CDATA[<p>我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。<br>但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。</p>
-<p>前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk aar，导致aar的代码无法跟随组件一起上传到maven。</p>
-<p>后发现一个很好的插件可以很好的解决这个问题。</p>
-<p><a href="https://github.com/kezong/fat-aar-android" target="_blank" rel="noopener">&lt;&lt;&lt;&lt;插件地址&gt;&gt;&gt;&gt;</a></p>
-<h2 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、根目录添加插件引用</span><br><span class="line">classpath <span class="string">'com.github.kezong:fat-aar:1.3.6'</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="built_in">module</span>应用插件，注意，插件只适用于library</span><br><span class="line">apply plugin: <span class="string">'com.kezong.fat-aar'</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、递归合并开关</span><br><span class="line">fataar &#123;transitive = <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、合并aar</span><br><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs <span class="string">'libs'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">embed (name: <span class="string">'xxxxxxxxxx'</span>, <span class="attr">ext</span>: <span class="string">'aar'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、合并<span class="built_in">module</span></span><br><span class="line">embed project(path: <span class="string">':lib-xxx'</span>, <span class="attr">configuration</span>: <span class="string">'default'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、合并maven引用</span><br><span class="line">embed <span class="string">'javax.annotation:javax.annotation-api:1.3.2'</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、引用剔除</span><br><span class="line">embed(<span class="string">'com.facebook.fresco:fresco:1.11.0'</span>) &#123;</span><br><span class="line">    <span class="comment">// 剔除所有引用传递</span></span><br><span class="line">    transitive = <span class="literal">false</span></span><br><span class="line">    <span class="comment">// 剔除单个组</span></span><br><span class="line">    exclude(group:<span class="string">'com.facebook.soloader'</span>, <span class="attr">module</span>:<span class="string">'soloader'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、更多用法</span><br><span class="line">flavorEmbed、 debugEmbed</span><br></pre></td></tr></table></figure>
-]]></content>
-      <tags>
-        <tag>SDK</tag>
-        <tag>fat-aar</tag>
-        <tag>打包</tag>
-        <tag>代码合并</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Docker中运行Flask</title>
-    <url>/2018/08/04/docker-flask/</url>
-    <content><![CDATA[<p>最近刚刚简单学习了Docker和Flask，周末无事，在Docker中简单部署了Flask，记录一下实现方式。</p>
-<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>[alpine + python3 + flask]</p>
-<p>alpine作为基础系统，安装Python3 + Flask。</p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="pic_dir.jpg" alt=""></p>
-<h2 id="目录对应文件说明"><a href="#目录对应文件说明" class="headerlink" title="目录对应文件说明"></a>目录对应文件说明</h2><h3 id="DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下"><a href="#DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下" class="headerlink" title="DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:"></a>DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Dockerfile</span><br><span class="line"></span><br><span class="line">FROM alpine:3.8</span><br><span class="line"></span><br><span class="line">MAINTAINER sorosunrain</span><br><span class="line"></span><br><span class="line">RUN echo &quot;https://mirror.tuna.tsinghua.edu.cn/alpine/v3.8/main/&quot; &gt; etc/apk/repositories</span><br><span class="line"></span><br><span class="line">RUN apk add --update \</span><br><span class="line">bash \</span><br><span class="line">py3-flask \</span><br><span class="line">#&amp;&amp; rm -rf var/cache/apk/*</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># build_base_img_flask</span><br><span class="line"></span><br><span class="line">cd DF_BASE_FLASK</span><br><span class="line">docker build -t &quot;sunrain/flask&quot; .</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 镜像</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">$ REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">  sunrain/flask             latest              d21e49cd15b0        24 minutes ago      60.6MB</span><br></pre></td></tr></table></figure>
-<h3 id="work-yml"><a href="#work-yml" class="headerlink" title="work.yml"></a>work.yml</h3><p>提供docker compose使用，代码如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># work.yml</span><br><span class="line"></span><br><span class="line">version: &quot;1&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  sunrian_flask:</span><br><span class="line">    image: sunrain/flask_workspace:latest</span><br><span class="line">    volumes:</span><br><span class="line">      - /dk/Flask:/code</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;10089:10086&quot;</span><br><span class="line">    command: python3 Flask.py</span><br></pre></td></tr></table></figure></p>
-<p><code>/dk/Flask</code>是我的电脑映射的docker读写目录，文件结构及主要的Flask.py代码如下：<br><img src="pic_workspace.jpg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Flask.py</span><br><span class="line"></span><br><span class="line"># encoding: utf-8</span><br><span class="line"></span><br><span class="line">from flask import Flask, \</span><br><span class="line">    redirect, render_template, url_for</span><br><span class="line"></span><br><span class="line">import config</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(config)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def hello():</span><br><span class="line">    return u&apos;Hello World !&apos;</span><br><span class="line">    # return render_template(&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">    return u&apos;欢迎登陆...&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    app.run(host=&quot;0.0.0.0&quot;, port=10086)</span><br></pre></td></tr></table></figure>
-<h3 id="DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下"><a href="#DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下" class="headerlink" title="DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:"></a>DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Dockerfile</span><br><span class="line"></span><br><span class="line">FROM sunrain/flask</span><br><span class="line"></span><br><span class="line">RUN mkdir /code</span><br><span class="line">WORKDIR /code</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># build_workspace</span><br><span class="line"></span><br><span class="line">cd DF_WORKSPACE</span><br><span class="line">docker build -t &quot;sunrain/flask_workspace&quot; .</span><br><span class="line"></span><br><span class="line">docker-compose -f ../work.yml up</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 镜像</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">$ REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">  sunrain/flask_workspace   latest              b1befeb36afc        24 minutes ago      60.6MB</span><br></pre></td></tr></table></figure>
-<p>最终运行效果如下：<br><img src="pic_result.jpg" alt=""></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面的实现过程并不复杂，搭建一个web项目由于使用了docker和python而变得更加简单，一个独立且方便移植的linux+python+flask实现的web项目紧60M左右，让我不得不感叹科技的发展如此之快。</p>
-]]></content>
-      <tags>
-        <tag>docker</tag>
-        <tag>flask</tag>
-      </tags>
   </entry>
   <entry>
     <title>黑苹果安装</title>
@@ -183,32 +142,44 @@
       </tags>
   </entry>
   <entry>
-    <title>Flutter 第一篇 安装</title>
-    <url>/2018/05/29/flutter-start/</url>
-    <content><![CDATA[<p>Flutter是谷歌的开发者推出的跨平台编程框架，用Dart语言进行开发，最终编译成arm字节码。</p>
-<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>环境：macOS<br>现在官网提供的安装方式是一个zip包，个人建议还是去git下载源码，可以方便切换分支和tag。<br>个人习惯安装到Application下。</p>
-<h2 id="Flutter环境"><a href="#Flutter环境" class="headerlink" title="Flutter环境"></a>Flutter环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/flutter/flutter.git /Applications/Flutter/</span><br></pre></td></tr></table></figure>
-<p>clone完成之后在.bash_profile中导入环境变量，并且初始化flutter<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--------.bash_profile--------</span><br><span class="line">#Flutter</span><br><span class="line">export PATH=$PATH:/Applications/Flutter/bin</span><br><span class="line"></span><br><span class="line">--------Run in Terminal--------</span><br><span class="line">#检测自身完整性(自动下载依赖)</span><br><span class="line">flutter doctor</span><br></pre></td></tr></table></figure></p>
-<p>与网速有关安装完大概是这样：<br><img src="./command.jpg" alt=""></p>
-<h2 id="苹果调试"><a href="#苹果调试" class="headerlink" title="苹果调试"></a>苹果调试</h2><p>如果要测试苹果需要安装xcode:<a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">网页下载</a>或者<a href="https://itunes.apple.com/us/app/xcode/id497799835" target="_blank" rel="noopener">Appstore下载</a></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br><span class="line">#打开一模拟器 确保是5s以后的64位设备</span><br><span class="line">open -a Simulator</span><br></pre></td></tr></table></figure>
-<p>如果需要在真机上测试，需要额外安装几个插件：<br>确保已经安装homebrew<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install --HEAD libimobiledevice</span><br><span class="line">brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line">pod setup</span><br></pre></td></tr></table></figure></p>
-<h2 id="IntelliJ"><a href="#IntelliJ" class="headerlink" title="IntelliJ"></a>IntelliJ</h2><p>安装Drat和Flutter插件后重启<br>创建一个Flutter工程</p>
-<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>连接Android设备直接Run即可。</p>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>优点：</p>
-<ul>
-<li>跨平台</li>
-<li>一套代码方便维护</li>
-<li>展现形式符合各自平台的使用习惯<br>缺点：</li>
-<li>要学习Dart语法</li>
-<li>生成APK较大，测试一个HelloWord的apk大概30M</li>
-<li>启动速度慢，不是较慢，是慢。。</li>
-</ul>
-<p>以上是初次搭建平台，跑完HelloWorld之后的使用体验。可能有失偏颇。</p>
+    <title>在Docker中运行Flask</title>
+    <url>/2018/08/04/docker-flask/</url>
+    <content><![CDATA[<p>最近刚刚简单学习了Docker和Flask，周末无事，在Docker中简单部署了Flask，记录一下实现方式。</p>
+<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>[alpine + python3 + flask]</p>
+<p>alpine作为基础系统，安装Python3 + Flask。</p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="pic_dir.jpg" alt=""></p>
+<h2 id="目录对应文件说明"><a href="#目录对应文件说明" class="headerlink" title="目录对应文件说明"></a>目录对应文件说明</h2><h3 id="DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下"><a href="#DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下" class="headerlink" title="DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:"></a>DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Dockerfile</span><br><span class="line"></span><br><span class="line">FROM alpine:3.8</span><br><span class="line"></span><br><span class="line">MAINTAINER sorosunrain</span><br><span class="line"></span><br><span class="line">RUN echo &quot;https://mirror.tuna.tsinghua.edu.cn/alpine/v3.8/main/&quot; &gt; etc/apk/repositories</span><br><span class="line"></span><br><span class="line">RUN apk add --update \</span><br><span class="line">bash \</span><br><span class="line">py3-flask \</span><br><span class="line">#&amp;&amp; rm -rf var/cache/apk/*</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># build_base_img_flask</span><br><span class="line"></span><br><span class="line">cd DF_BASE_FLASK</span><br><span class="line">docker build -t &quot;sunrain/flask&quot; .</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 镜像</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">$ REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">  sunrain/flask             latest              d21e49cd15b0        24 minutes ago      60.6MB</span><br></pre></td></tr></table></figure>
+<h3 id="work-yml"><a href="#work-yml" class="headerlink" title="work.yml"></a>work.yml</h3><p>提供docker compose使用，代码如下：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># work.yml</span><br><span class="line"></span><br><span class="line">version: &quot;1&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  sunrian_flask:</span><br><span class="line">    image: sunrain/flask_workspace:latest</span><br><span class="line">    volumes:</span><br><span class="line">      - /dk/Flask:/code</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;10089:10086&quot;</span><br><span class="line">    command: python3 Flask.py</span><br></pre></td></tr></table></figure></p>
+<p><code>/dk/Flask</code>是我的电脑映射的docker读写目录，文件结构及主要的Flask.py代码如下：<br><img src="pic_workspace.jpg" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Flask.py</span><br><span class="line"></span><br><span class="line"># encoding: utf-8</span><br><span class="line"></span><br><span class="line">from flask import Flask, \</span><br><span class="line">    redirect, render_template, url_for</span><br><span class="line"></span><br><span class="line">import config</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(config)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def hello():</span><br><span class="line">    return u&apos;Hello World !&apos;</span><br><span class="line">    # return render_template(&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">    return u&apos;欢迎登陆...&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    app.run(host=&quot;0.0.0.0&quot;, port=10086)</span><br></pre></td></tr></table></figure>
+<h3 id="DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下"><a href="#DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下" class="headerlink" title="DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:"></a>DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Dockerfile</span><br><span class="line"></span><br><span class="line">FROM sunrain/flask</span><br><span class="line"></span><br><span class="line">RUN mkdir /code</span><br><span class="line">WORKDIR /code</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># build_workspace</span><br><span class="line"></span><br><span class="line">cd DF_WORKSPACE</span><br><span class="line">docker build -t &quot;sunrain/flask_workspace&quot; .</span><br><span class="line"></span><br><span class="line">docker-compose -f ../work.yml up</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 镜像</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">$ REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">  sunrain/flask_workspace   latest              b1befeb36afc        24 minutes ago      60.6MB</span><br></pre></td></tr></table></figure>
+<p>最终运行效果如下：<br><img src="pic_result.jpg" alt=""></p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面的实现过程并不复杂，搭建一个web项目由于使用了docker和python而变得更加简单，一个独立且方便移植的linux+python+flask实现的web项目紧60M左右，让我不得不感叹科技的发展如此之快。</p>
 ]]></content>
       <tags>
-        <tag>Flutter</tag>
-        <tag>跨平台</tag>
+        <tag>docker</tag>
+        <tag>flask</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一种SDK发布打包代码合并方案</title>
+    <url>/2021/06/01/fat-aar/</url>
+    <content><![CDATA[<p>我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。<br>但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。</p>
+<p>前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk aar，导致aar的代码无法跟随组件一起上传到maven。</p>
+<p>后发现一个很好的插件可以很好的解决这个问题。</p>
+<p><a href="https://github.com/kezong/fat-aar-android" target="_blank" rel="noopener">&lt;&lt;&lt;&lt;插件地址&gt;&gt;&gt;&gt;</a></p>
+<h2 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、根目录添加插件引用</span><br><span class="line">classpath <span class="string">'com.github.kezong:fat-aar:1.3.6'</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="built_in">module</span>应用插件，注意，插件只适用于library</span><br><span class="line">apply plugin: <span class="string">'com.kezong.fat-aar'</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight js"><table><tr><td class="code"><pre><span class="line"><span class="number">1</span>、递归合并开关</span><br><span class="line">fataar &#123;transitive = <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、合并aar</span><br><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs <span class="string">'libs'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">embed (name: <span class="string">'xxxxxxxxxx'</span>, <span class="attr">ext</span>: <span class="string">'aar'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、合并<span class="built_in">module</span></span><br><span class="line">embed project(path: <span class="string">':lib-xxx'</span>, <span class="attr">configuration</span>: <span class="string">'default'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、合并maven引用</span><br><span class="line">embed <span class="string">'javax.annotation:javax.annotation-api:1.3.2'</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、引用剔除</span><br><span class="line">embed(<span class="string">'com.facebook.fresco:fresco:1.11.0'</span>) &#123;</span><br><span class="line">    <span class="comment">// 剔除所有引用传递</span></span><br><span class="line">    transitive = <span class="literal">false</span></span><br><span class="line">    <span class="comment">// 剔除单个组</span></span><br><span class="line">    exclude(group:<span class="string">'com.facebook.soloader'</span>, <span class="attr">module</span>:<span class="string">'soloader'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、更多用法</span><br><span class="line">flavorEmbed、 debugEmbed</span><br></pre></td></tr></table></figure>
+]]></content>
+      <tags>
+        <tag>SDK</tag>
+        <tag>fat-aar</tag>
+        <tag>打包</tag>
+        <tag>代码合并</tag>
       </tags>
   </entry>
   <entry>
@@ -299,6 +270,35 @@
       <tags>
         <tag>Android</tag>
         <tag>Room</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Flutter 第一篇 安装</title>
+    <url>/2018/05/29/flutter-start/</url>
+    <content><![CDATA[<p>Flutter是谷歌的开发者推出的跨平台编程框架，用Dart语言进行开发，最终编译成arm字节码。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><p>环境：macOS<br>现在官网提供的安装方式是一个zip包，个人建议还是去git下载源码，可以方便切换分支和tag。<br>个人习惯安装到Application下。</p>
+<h2 id="Flutter环境"><a href="#Flutter环境" class="headerlink" title="Flutter环境"></a>Flutter环境</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/flutter/flutter.git /Applications/Flutter/</span><br></pre></td></tr></table></figure>
+<p>clone完成之后在.bash_profile中导入环境变量，并且初始化flutter<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">--------.bash_profile--------</span><br><span class="line">#Flutter</span><br><span class="line">export PATH=$PATH:/Applications/Flutter/bin</span><br><span class="line"></span><br><span class="line">--------Run in Terminal--------</span><br><span class="line">#检测自身完整性(自动下载依赖)</span><br><span class="line">flutter doctor</span><br></pre></td></tr></table></figure></p>
+<p>与网速有关安装完大概是这样：<br><img src="./command.jpg" alt=""></p>
+<h2 id="苹果调试"><a href="#苹果调试" class="headerlink" title="苹果调试"></a>苹果调试</h2><p>如果要测试苹果需要安装xcode:<a href="https://developer.apple.com/xcode/" target="_blank" rel="noopener">网页下载</a>或者<a href="https://itunes.apple.com/us/app/xcode/id497799835" target="_blank" rel="noopener">Appstore下载</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">sudo xcode-select --switch /Applications/Xcode.app/Contents/Developer</span><br><span class="line">#打开一模拟器 确保是5s以后的64位设备</span><br><span class="line">open -a Simulator</span><br></pre></td></tr></table></figure>
+<p>如果需要在真机上测试，需要额外安装几个插件：<br>确保已经安装homebrew<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">brew update</span><br><span class="line">brew install --HEAD libimobiledevice</span><br><span class="line">brew install ideviceinstaller ios-deploy cocoapods</span><br><span class="line">pod setup</span><br></pre></td></tr></table></figure></p>
+<h2 id="IntelliJ"><a href="#IntelliJ" class="headerlink" title="IntelliJ"></a>IntelliJ</h2><p>安装Drat和Flutter插件后重启<br>创建一个Flutter工程</p>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>连接Android设备直接Run即可。</p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>优点：</p>
+<ul>
+<li>跨平台</li>
+<li>一套代码方便维护</li>
+<li>展现形式符合各自平台的使用习惯<br>缺点：</li>
+<li>要学习Dart语法</li>
+<li>生成APK较大，测试一个HelloWord的apk大概30M</li>
+<li>启动速度慢，不是较慢，是慢。。</li>
+</ul>
+<p>以上是初次搭建平台，跑完HelloWorld之后的使用体验。可能有失偏颇。</p>
+]]></content>
+      <tags>
+        <tag>Flutter</tag>
+        <tag>跨平台</tag>
       </tags>
   </entry>
   <entry>
