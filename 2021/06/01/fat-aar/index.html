@@ -82,7 +82,7 @@
 
 
 
-  <meta name="keywords" content="docker,flask," />
+  <meta name="keywords" content="SDK,fat-aar,打包,代码合并," />
 
 
 
@@ -93,22 +93,18 @@
 
 
 
-<meta name="description" content="最近刚刚简单学习了Docker和Flask，周末无事，在Docker中简单部署了Flask，记录一下实现方式。 基本思路[alpine + python3 + flask] alpine作为基础系统，安装Python3 + Flask。 目录结构 目录对应文件说明DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成">
-<meta name="keywords" content="docker,flask">
+<meta name="description" content="我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。 前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk">
+<meta name="keywords" content="SDK,fat-aar,打包,代码合并">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Docker中运行Flask">
-<meta property="og:url" content="https://sorosunrain.github.io/2018/08/04/docker-flask/index.html">
+<meta property="og:title" content="一种SDK发布打包代码合并方案">
+<meta property="og:url" content="https://sorosunrain.github.io/2021/06/01/fat-aar/index.html">
 <meta property="og:site_name" content="sorosunrain">
-<meta property="og:description" content="最近刚刚简单学习了Docker和Flask，周末无事，在Docker中简单部署了Flask，记录一下实现方式。 基本思路[alpine + python3 + flask] alpine作为基础系统，安装Python3 + Flask。 目录结构 目录对应文件说明DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成">
+<meta property="og:description" content="我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。 前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://sorosunrain.github.io/2018/08/04/docker-flask/pic_dir.jpg">
-<meta property="og:image" content="https://sorosunrain.github.io/2018/08/04/docker-flask/pic_workspace.jpg">
-<meta property="og:image" content="https://sorosunrain.github.io/2018/08/04/docker-flask/pic_result.jpg">
-<meta property="og:updated_time" content="2018-08-04T11:26:48.869Z">
+<meta property="og:updated_time" content="2021-06-01T03:23:06.053Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Docker中运行Flask">
-<meta name="twitter:description" content="最近刚刚简单学习了Docker和Flask，周末无事，在Docker中简单部署了Flask，记录一下实现方式。 基本思路[alpine + python3 + flask] alpine作为基础系统，安装Python3 + Flask。 目录结构 目录对应文件说明DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成">
-<meta name="twitter:image" content="https://sorosunrain.github.io/2018/08/04/docker-flask/pic_dir.jpg">
+<meta name="twitter:title" content="一种SDK发布打包代码合并方案">
+<meta name="twitter:description" content="我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。 前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk">
 
 
 
@@ -138,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="https://sorosunrain.github.io/2018/08/04/docker-flask/"/>
+  <link rel="canonical" href="https://sorosunrain.github.io/2021/06/01/fat-aar/"/>
 
 
 
 
 
-  <title>在Docker中运行Flask | sorosunrain</title>
+  <title>一种SDK发布打包代码合并方案 | sorosunrain</title>
   
 
 
@@ -263,7 +259,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sorosunrain.github.io/2018/08/04/docker-flask/">
+    <link itemprop="mainEntityOfPage" href="https://sorosunrain.github.io/2021/06/01/fat-aar/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sorosunrain">
@@ -280,7 +276,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">在Docker中运行Flask</h2>
+          <h2 class="post-title" itemprop="name headline">一种SDK发布打包代码合并方案</h2>
         
 
         <div class="post-meta">
@@ -292,8 +288,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-04T18:45:37+08:00">
-                2018-08-04
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-01T10:47:45+08:00">
+                2021-06-01
               </time>
             
 
@@ -324,7 +320,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  493
+                  361
                 </span>
               字
 
@@ -361,21 +357,12 @@
       
 
       
-        <p>最近刚刚简单学习了Docker和Flask，周末无事，在Docker中简单部署了Flask，记录一下实现方式。</p>
-<h2 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h2><p>[alpine + python3 + flask]</p>
-<p>alpine作为基础系统，安装Python3 + Flask。</p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p><img src="pic_dir.jpg" alt=""></p>
-<h2 id="目录对应文件说明"><a href="#目录对应文件说明" class="headerlink" title="目录对应文件说明"></a>目录对应文件说明</h2><h3 id="DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下"><a href="#DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下" class="headerlink" title="DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:"></a>DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Dockerfile</span><br><span class="line"></span><br><span class="line">FROM alpine:3.8</span><br><span class="line"></span><br><span class="line">MAINTAINER sorosunrain</span><br><span class="line"></span><br><span class="line">RUN echo &quot;https://mirror.tuna.tsinghua.edu.cn/alpine/v3.8/main/&quot; &gt; etc/apk/repositories</span><br><span class="line"></span><br><span class="line">RUN apk add --update \</span><br><span class="line">bash \</span><br><span class="line">py3-flask \</span><br><span class="line">#&amp;&amp; rm -rf var/cache/apk/*</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># build_base_img_flask</span><br><span class="line"></span><br><span class="line">cd DF_BASE_FLASK</span><br><span class="line">docker build -t &quot;sunrain/flask&quot; .</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 镜像</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">$ REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">  sunrain/flask             latest              d21e49cd15b0        24 minutes ago      60.6MB</span><br></pre></td></tr></table></figure>
-<h3 id="work-yml"><a href="#work-yml" class="headerlink" title="work.yml"></a>work.yml</h3><p>提供docker compose使用，代码如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># work.yml</span><br><span class="line"></span><br><span class="line">version: &quot;1&quot;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  sunrian_flask:</span><br><span class="line">    image: sunrain/flask_workspace:latest</span><br><span class="line">    volumes:</span><br><span class="line">      - /dk/Flask:/code</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;10089:10086&quot;</span><br><span class="line">    command: python3 Flask.py</span><br></pre></td></tr></table></figure></p>
-<p><code>/dk/Flask</code>是我的电脑映射的docker读写目录，文件结构及主要的Flask.py代码如下：<br><img src="pic_workspace.jpg" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"># Flask.py</span><br><span class="line"></span><br><span class="line"># encoding: utf-8</span><br><span class="line"></span><br><span class="line">from flask import Flask, \</span><br><span class="line">    redirect, render_template, url_for</span><br><span class="line"></span><br><span class="line">import config</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line">app.config.from_object(config)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&apos;/&apos;)</span><br><span class="line">def hello():</span><br><span class="line">    return u&apos;Hello World !&apos;</span><br><span class="line">    # return render_template(&apos;index.html&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">@app.route(&apos;/login&apos;)</span><br><span class="line">def login():</span><br><span class="line">    return u&apos;欢迎登陆...&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    app.run(host=&quot;0.0.0.0&quot;, port=10086)</span><br></pre></td></tr></table></figure>
-<h3 id="DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下"><a href="#DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下" class="headerlink" title="DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:"></a>DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Dockerfile</span><br><span class="line"></span><br><span class="line">FROM sunrain/flask</span><br><span class="line"></span><br><span class="line">RUN mkdir /code</span><br><span class="line">WORKDIR /code</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># build_workspace</span><br><span class="line"></span><br><span class="line">cd DF_WORKSPACE</span><br><span class="line">docker build -t &quot;sunrain/flask_workspace&quot; .</span><br><span class="line"></span><br><span class="line">docker-compose -f ../work.yml up</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"># 镜像</span><br><span class="line"></span><br><span class="line">$ docker images</span><br><span class="line">$ REPOSITORY                TAG                 IMAGE ID            CREATED             SIZE</span><br><span class="line">  sunrain/flask_workspace   latest              b1befeb36afc        24 minutes ago      60.6MB</span><br></pre></td></tr></table></figure>
-<p>最终运行效果如下：<br><img src="pic_result.jpg" alt=""></p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面的实现过程并不复杂，搭建一个web项目由于使用了docker和python而变得更加简单，一个独立且方便移植的linux+python+flask实现的web项目紧60M左右，让我不得不感叹科技的发展如此之快。</p>
+        <p>我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。<br>但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。</p>
+<p>前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk aar，导致aar的代码无法跟随组件一起上传到maven。</p>
+<p>后发现一个很好的插件可以很好的解决这个问题。</p>
+<p><a href="https://github.com/kezong/fat-aar-android" target="_blank" rel="noopener">&lt;&lt;&lt;&lt;插件地址&gt;&gt;&gt;&gt;</a></p>
+<h2 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、根目录添加插件引用</span><br><span class="line">classpath <span class="string">'com.github.kezong:fat-aar:1.3.6'</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="built_in">module</span>应用插件，注意，插件只适用于library</span><br><span class="line">apply plugin: <span class="string">'com.kezong.fat-aar'</span></span><br></pre></td></tr></table></figure>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、递归合并开关</span><br><span class="line">fataar &#123;transitive = <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、合并aar</span><br><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs <span class="string">'libs'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">embed (name: <span class="string">'xxxxxxxxxx'</span>, <span class="attr">ext</span>: <span class="string">'aar'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、合并<span class="built_in">module</span></span><br><span class="line">embed project(path: <span class="string">':lib-xxx'</span>, <span class="attr">configuration</span>: <span class="string">'default'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、合并maven引用</span><br><span class="line">embed <span class="string">'javax.annotation:javax.annotation-api:1.3.2'</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、引用剔除</span><br><span class="line">embed(<span class="string">'com.facebook.fresco:fresco:1.11.0'</span>) &#123;</span><br><span class="line">    <span class="comment">// 剔除所有引用传递</span></span><br><span class="line">    transitive = <span class="literal">false</span></span><br><span class="line">    <span class="comment">// 剔除单个组</span></span><br><span class="line">    exclude(group:<span class="string">'com.facebook.soloader'</span>, <span class="attr">module</span>:<span class="string">'soloader'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、更多用法</span><br><span class="line">flavorEmbed、 debugEmbed</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -425,7 +412,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sorosunrain.github.io/2018/08/04/docker-flask/" title="在Docker中运行Flask">https://sorosunrain.github.io/2018/08/04/docker-flask/</a>
+    <a href="https://sorosunrain.github.io/2021/06/01/fat-aar/" title="一种SDK发布打包代码合并方案">https://sorosunrain.github.io/2021/06/01/fat-aar/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -440,9 +427,13 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"><i class="fa fa-tag"></i> docker</a>
+            <a href="/tags/SDK/" rel="tag"><i class="fa fa-tag"></i> SDK</a>
           
-            <a href="/tags/flask/" rel="tag"><i class="fa fa-tag"></i> flask</a>
+            <a href="/tags/fat-aar/" rel="tag"><i class="fa fa-tag"></i> fat-aar</a>
+          
+            <a href="/tags/打包/" rel="tag"><i class="fa fa-tag"></i> 打包</a>
+          
+            <a href="/tags/代码合并/" rel="tag"><i class="fa fa-tag"></i> 代码合并</a>
           
         </div>
       
@@ -455,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/31/MatMemory/" rel="next" title="使用Mat分析Android应用内存">
-                <i class="fa fa-chevron-left"></i> 使用Mat分析Android应用内存
+              <a href="/2020/09/08/ad-baidu/" rel="next" title="百度">
+                <i class="fa fa-chevron-left"></i> 百度
               </a>
             
           </div>
@@ -464,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/09/08/room/" rel="prev" title="Android Room 数据库访问">
-                Android Room 数据库访问 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本思路"><span class="nav-number">1.</span> <span class="nav-text">基本思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构"><span class="nav-number">2.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录对应文件说明"><span class="nav-number">3.</span> <span class="nav-text">目录对应文件说明</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DF-BASE-FLASK-Dockerfile-build-base-img-flask-生成一个基础的镜像-对应的代码和生成镜像如下"><span class="nav-number">3.1.</span> <span class="nav-text">DF_BASE_FLASK [Dockerfile + build_base_img_flask] 生成一个基础的镜像,对应的代码和生成镜像如下:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#work-yml"><span class="nav-number">3.2.</span> <span class="nav-text">work.yml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DF-WORKSPACE-Dockerfile-build-workspace-生成一个基于基础镜像的代码目录映射镜像-对应的代码和生成镜像如下"><span class="nav-number">3.3.</span> <span class="nav-text">DF_WORKSPACE [Dockerfile + build_workspace] 生成一个基于基础镜像的代码目录映射镜像,对应的代码和生成镜像如下:</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成"><span class="nav-number">1.</span> <span class="nav-text">集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li></ol></div>
             
 
           </div>
