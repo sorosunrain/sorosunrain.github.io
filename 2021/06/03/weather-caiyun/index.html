@@ -82,7 +82,7 @@
 
 
 
-  <meta name="keywords" content="SDK,fat-aar,打包,代码合并," />
+  <meta name="keywords" content="天气,彩云,API," />
 
 
 
@@ -93,18 +93,23 @@
 
 
 
-<meta name="description" content="我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。 前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk">
-<meta name="keywords" content="SDK,fat-aar,打包,代码合并">
+<meta name="description" content="以下接口的token来自于Github 通用预报接口：https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/weather.json实况天气接口：https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/realtime.json分钟级降雨预报接口：h">
+<meta name="keywords" content="天气,彩云,API">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一种SDK发布打包代码合并方案">
-<meta property="og:url" content="https://sorosunrain.github.io/2021/06/01/fat-aar/index.html">
+<meta property="og:title" content="彩云天气API">
+<meta property="og:url" content="https://sorosunrain.github.io/2021/06/03/weather-caiyun/index.html">
 <meta property="og:site_name" content="sorosunrain">
-<meta property="og:description" content="我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。 前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk">
+<meta property="og:description" content="以下接口的token来自于Github 通用预报接口：https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/weather.json实况天气接口：https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/realtime.json分钟级降雨预报接口：h">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2021-06-01T03:23:06.053Z">
+<meta property="og:image" content="https://sorosunrain.github.io/2021/06/03/weather-caiyun/WX20210603-104745@2x.png">
+<meta property="og:image" content="https://sorosunrain.github.io/2021/06/03/weather-caiyun/WX20210603-105400@2x.png">
+<meta property="og:image" content="https://sorosunrain.github.io/2021/06/03/weather-caiyun/WX20210603-105702.png">
+<meta property="og:image" content="https://sorosunrain.github.io/2021/06/03/weather-caiyun/WX20210603-104745@2x.png">
+<meta property="og:updated_time" content="2021-06-03T03:21:31.966Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一种SDK发布打包代码合并方案">
-<meta name="twitter:description" content="我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。 前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk">
+<meta name="twitter:title" content="彩云天气API">
+<meta name="twitter:description" content="以下接口的token来自于Github 通用预报接口：https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/weather.json实况天气接口：https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/realtime.json分钟级降雨预报接口：h">
+<meta name="twitter:image" content="https://sorosunrain.github.io/2021/06/03/weather-caiyun/WX20210603-104745@2x.png">
 
 
 
@@ -134,13 +139,13 @@
 
 
 
-  <link rel="canonical" href="https://sorosunrain.github.io/2021/06/01/fat-aar/"/>
+  <link rel="canonical" href="https://sorosunrain.github.io/2021/06/03/weather-caiyun/"/>
 
 
 
 
 
-  <title>一种SDK发布打包代码合并方案 | sorosunrain</title>
+  <title>彩云天气API | sorosunrain</title>
   
 
 
@@ -259,7 +264,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://sorosunrain.github.io/2021/06/01/fat-aar/">
+    <link itemprop="mainEntityOfPage" href="https://sorosunrain.github.io/2021/06/03/weather-caiyun/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="sorosunrain">
@@ -276,7 +281,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">一种SDK发布打包代码合并方案</h2>
+          <h2 class="post-title" itemprop="name headline">彩云天气API</h2>
         
 
         <div class="post-meta">
@@ -288,8 +293,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-01T10:47:45+08:00">
-                2021-06-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2021-06-03T10:39:23+08:00">
+                2021-06-03
               </time>
             
 
@@ -320,7 +325,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  361
+                  162
                 </span>
               字
 
@@ -336,7 +341,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  1
                 </span>
               分
             </div>
@@ -357,12 +362,18 @@
       
 
       
-        <p>我们公司的sdk发版一直遇到一个问题，由于module分了多层，maven发版的时候又不能合并代码，一开始的方案是将每个module都单独上传maven。<br>但是这样会导致两个问题，一个是各个module之间引用复杂，一个底层module改变后需要上层一起发版；另一个问题是不好测试，需要写脚本区分。</p>
-<p>前期一直是这样维护的，后来需要一个需求，我们的sdk提供了一个注册组件的方法，组件引用的三方的sdk aar，导致aar的代码无法跟随组件一起上传到maven。</p>
-<p>后发现一个很好的插件可以很好的解决这个问题。</p>
-<p><a href="https://github.com/kezong/fat-aar-android" target="_blank" rel="noopener">&lt;&lt;&lt;&lt;插件地址&gt;&gt;&gt;&gt;</a></p>
-<h2 id="集成"><a href="#集成" class="headerlink" title="集成"></a>集成</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、根目录添加插件引用</span><br><span class="line">classpath <span class="string">'com.github.kezong:fat-aar:1.3.6'</span></span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、<span class="built_in">module</span>应用插件，注意，插件只适用于library</span><br><span class="line">apply plugin: <span class="string">'com.kezong.fat-aar'</span></span><br></pre></td></tr></table></figure>
-<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>、递归合并开关</span><br><span class="line">fataar &#123;transitive = <span class="literal">true</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>、合并aar</span><br><span class="line">repositories &#123;</span><br><span class="line">    flatDir &#123;</span><br><span class="line">        dirs <span class="string">'libs'</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">embed (name: <span class="string">'xxxxxxxxxx'</span>, <span class="attr">ext</span>: <span class="string">'aar'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>、合并<span class="built_in">module</span></span><br><span class="line">embed project(path: <span class="string">':lib-xxx'</span>, <span class="attr">configuration</span>: <span class="string">'default'</span>)</span><br><span class="line"></span><br><span class="line"><span class="number">4</span>、合并maven引用</span><br><span class="line">embed <span class="string">'javax.annotation:javax.annotation-api:1.3.2'</span></span><br><span class="line"></span><br><span class="line"><span class="number">5</span>、引用剔除</span><br><span class="line">embed(<span class="string">'com.facebook.fresco:fresco:1.11.0'</span>) &#123;</span><br><span class="line">    <span class="comment">// 剔除所有引用传递</span></span><br><span class="line">    transitive = <span class="literal">false</span></span><br><span class="line">    <span class="comment">// 剔除单个组</span></span><br><span class="line">    exclude(group:<span class="string">'com.facebook.soloader'</span>, <span class="attr">module</span>:<span class="string">'soloader'</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">6</span>、更多用法</span><br><span class="line">flavorEmbed、 debugEmbed</span><br></pre></td></tr></table></figure>
+        <p>以下接口的token来自于<a href="https://github.com/LiMouo/SunnyWeather/blob/main/app/src/main/java/com/sunnyweather/android/SunnyWeatherApplication.kt" target="_blank" rel="noopener">Github</a></p>
+<p><a href="https://open.caiyunapp.com/%E9%80%9A%E7%94%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5" target="_blank" rel="noopener">通用预报接口</a>：<a href="https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/weather.json" target="_blank" rel="noopener">https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/weather.json</a><br><a href="https://open.caiyunapp.com/%E5%AE%9E%E5%86%B5%E5%A4%A9%E6%B0%94%E6%8E%A5%E5%8F%A3/v2.5" target="_blank" rel="noopener">实况天气接口</a>：<a href="https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/realtime.json" target="_blank" rel="noopener">https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/realtime.json</a><br><a href="https://open.caiyunapp.com/%E5%88%86%E9%92%9F%E7%BA%A7%E9%99%8D%E9%9B%A8%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5" target="_blank" rel="noopener">分钟级降雨预报接口</a>：<a href="https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/minutely.json" target="_blank" rel="noopener">https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/minutely.json</a><br><a href="https://open.caiyunapp.com/%E5%B0%8F%E6%97%B6%E7%BA%A7%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5" target="_blank" rel="noopener">小时级预报接口</a>：<a href="https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/hourly.json" target="_blank" rel="noopener">https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/hourly.json</a><br><a href="https://open.caiyunapp.com/%E5%A4%A9%E7%BA%A7%E9%A2%84%E6%8A%A5%E6%8E%A5%E5%8F%A3/v2.5" target="_blank" rel="noopener">天级预报接口</a>：<a href="https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/daily.json" target="_blank" rel="noopener">https://api.caiyunapp.com/v2.5/PPhPMBzKtbn72fnI/115.4033,43.2309/daily.json</a></p>
+<p><a href="https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8" target="_blank" rel="noopener">详细说明</a></p>
+<p><img src="./WX20210603-104745@2x.png" alt="预报中支持的变量"></p>
+<p><img src="./WX20210603-105400@2x.png" alt="预报中支持的变量"></p>
+<p><img src="./WX20210603-105702.png" alt="预报中支持的变量"></p>
+<p><img src="./WX20210603-104745@2x.png" alt="预报中支持的变量"></p>
+<p><a href="https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E5.A4.A9.E6.B0.94.E7.8E.B0.E8.B1.A1.E4.BB.A3.E7.A0.81.E8.A1.A8" target="_blank" rel="noopener">天气现象代码表</a></p>
+<p><a href="https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.99.8D.E6.B0.B4.E5.BC.BA.E5.BA.A6.E5.AF.B9.E7.85.A7" target="_blank" rel="noopener">降水强度对照</a></p>
+<p><a href="https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#AQI_.E6.95.B0.E6.8D.AE.E5.AF.B9.E7.85.A7.E8.A1.A8" target="_blank" rel="noopener">空气质量对照表</a></p>
+<p><a href="https://open.caiyunapp.com/%E5%BD%A9%E4%BA%91%E5%A4%A9%E6%B0%94_API_%E4%B8%80%E8%A7%88%E8%A1%A8#.E9.A3.8E.E5.8A.9B.E9.A3.8E.E9.80.9F.E7.AD.89.E7.BA.A7.E5.AF.B9.E7.85.A7.E8.A1.A8" target="_blank" rel="noopener">风力风速等级对照表</a></p>
+<p><a href="./Adcode_release_2020-12-31.csv.zip">国内行政区经纬度对照表</a><br><a href="./Globalcities.csv.zip">国际城市经纬度对照表</a></p>
 
       
     </div>
@@ -412,7 +423,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://sorosunrain.github.io/2021/06/01/fat-aar/" title="一种SDK发布打包代码合并方案">https://sorosunrain.github.io/2021/06/01/fat-aar/</a>
+    <a href="https://sorosunrain.github.io/2021/06/03/weather-caiyun/" title="彩云天气API">https://sorosunrain.github.io/2021/06/03/weather-caiyun/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -427,13 +438,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/SDK/" rel="tag"><i class="fa fa-tag"></i> SDK</a>
+            <a href="/tags/天气/" rel="tag"><i class="fa fa-tag"></i> 天气</a>
           
-            <a href="/tags/fat-aar/" rel="tag"><i class="fa fa-tag"></i> fat-aar</a>
+            <a href="/tags/彩云/" rel="tag"><i class="fa fa-tag"></i> 彩云</a>
           
-            <a href="/tags/打包/" rel="tag"><i class="fa fa-tag"></i> 打包</a>
-          
-            <a href="/tags/代码合并/" rel="tag"><i class="fa fa-tag"></i> 代码合并</a>
+            <a href="/tags/API/" rel="tag"><i class="fa fa-tag"></i> API</a>
           
         </div>
       
@@ -446,8 +455,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2020/09/08/ad-baidu/" rel="next" title="百度">
-                <i class="fa fa-chevron-left"></i> 百度
+              <a href="/2021/06/01/fat-aar/" rel="next" title="一种SDK发布打包代码合并方案">
+                <i class="fa fa-chevron-left"></i> 一种SDK发布打包代码合并方案
               </a>
             
           </div>
@@ -455,10 +464,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2021/06/03/weather-caiyun/" rel="prev" title="彩云天气API">
-                彩云天气API <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -510,17 +515,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -585,22 +581,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集成"><span class="nav-number">1.</span> <span class="nav-text">集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用"><span class="nav-number">2.</span> <span class="nav-text">使用</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
